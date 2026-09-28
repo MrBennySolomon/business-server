@@ -16,6 +16,30 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/garage", (req, res) => {
+  res.json({
+    message: "https://6aae754a606bd915d110d395.mockapi.io/api/clients"
+  });
+});
+
+app.get("/transport-office", (req, res) => {
+  res.json({
+    message: "Server is working!"
+  });
+});
+
+app.get("/hair-salon", (req, res) => {
+  res.json({
+    message: "Server is working!"
+  });
+});
+
+app.get("/images", (req, res) => {
+  res.json({
+    message: "Server is working!"
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
