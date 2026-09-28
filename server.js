@@ -1,5 +1,9 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
+
+const PORT = process.env.PORT || 3000;
+const MONGO_URI = process.env.MONGO_URI;
 
 const app = express();
 
@@ -12,6 +16,6 @@ app.get("/", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
