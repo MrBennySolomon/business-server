@@ -20,22 +20,29 @@ app.get("/garage", async (req, res) => {
     res.json("https://6aae754a606bd915d110d395.mockapi.io/api/clients");
 });
 
+app.get("/images/garage", (req, res) => {
+  res.json(
+    "https://users-be4a5-default-rtdb.europe-west1.firebasedatabase.app"
+  );
+});
+
 app.get("/transport-office", (req, res) => {
-  res.json({
-    message: "transport-office"
-  });
+  res.json("https://6ab743059b03155d08087808.mockapi.io/api/transport");
+
+app.get("/images/transport-office", (req, res) => {
+  res.json(
+    "https://test-7b343-default-rtdb.europe-west1.firebasedatabase.app"
+  );
 });
 
 app.get("/hair-salon", (req, res) => {
-  res.json({
-    message: "hair-salon"
-  });
+  res.json("https://6aae754a606bd915d110d395.mockapi.io/api/salon-clients");
 });
 
-app.get("/images", (req, res) => {
-  res.json({
-    message: "images"
-  });
+app.get("/images/hair-salon", (req, res) => {
+  res.json(
+    "https://files-e43f6-default-rtdb.europe-west1.firebasedatabase.app/"
+  );
 });
 
 app.listen(PORT, () => {
