@@ -28,6 +28,7 @@ app.get("/images/garage", (req, res) => {
 
 app.get("/transport-office", (req, res) => {
   res.json("https://6ab743059b03155d08087808.mockapi.io/api/transport");
+});
 
 app.get("/images/transport-office", (req, res) => {
   res.json(
