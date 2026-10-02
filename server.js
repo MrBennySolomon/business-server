@@ -53,7 +53,7 @@ const BRANCH = GITHUB_BRANCH || "main";
 
 // רשימת ריפואים מותרים. ב-.env: ALLOWED_REPOS=garage-site,hair-salon-site
 // אם לא הוגדרה, מותר רק הריפו מ-GITHUB_REPO (אם קיים)
-const ALLOWED_REPOS = (process.env.ALLOWED_REPOS || GITHUB_REPO || "")
+const ALLOWED_REPOS = ("hair-salon" || "transport-office" || "garage" || GITHUB_REPO || "")
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
