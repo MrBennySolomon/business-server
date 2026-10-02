@@ -11,7 +11,7 @@ app.use(express.json());
 // Initialize GitHub configuration
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_OWNER = process.env.GITHUB_OWNER;
-let GITHUB_REPO = "";
+const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 const GITHUB_FILE_PATH = process.env.GITHUB_FILE_PATH;
 
@@ -50,10 +50,7 @@ app.get("/hair-salon", (req, res) => {
   res.json("https://6aae754a606bd915d110d395.mockapi.io/api/salon-clients");
 });
 
-app.post("/upload/garage", (req, res) => { 
-  GITHUB_REPO = "garage";
-  saveConfigToGithub(req, res);
-});
+app.post("/upload", saveConfigToGithub);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
@@ -110,13 +107,12 @@ async function putFile(content, sha) {
 }
 // ---------- הפונקציה שמקבלת את הבקשה ומעדכנת את הקובץ ב-GitHub ----------
 async function saveConfigToGithub(req, res) {
-
   try {
     if (!GITHUB_TOKEN || !GITHUB_OWNER || !GITHUB_REPO) {
       return res.status(500).json({ error: "חסרה הגדרת GitHub בשרת (.env)" });
     }
 
-    const { filename, content, repo } = req.body || {};
+    const { filename, content } = req.body || {};
 
     if (typeof filename !== "string" || typeof content !== "string") {
       return res.status(400).json({ error: "filename ו-content הם שדות חובה" });
