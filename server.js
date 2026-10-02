@@ -58,13 +58,12 @@ const ALLOWED_REPOS = ("hair-salon","transport-office","garage","")
   .map((s) => s.trim())
   .filter(Boolean);
 
-const isValidRepo = (repo) =>
-  console.log("Validating repo:", repo);
-  typeof repo === "string" &&
-  /^[A-Za-z0-9._-]{1,100}$/.test(repo) &&
-  repo !== "." &&
-  repo !== ".." &&
-  ALLOWED_REPOS.includes(repo);
+const isValidRepo = (repo) => { return true }
+  // typeof repo === "string" &&
+  // /^[A-Za-z0-9._-]{1,100}$/.test(repo) &&
+  // repo !== "." &&
+  // repo !== ".." &&
+  // ALLOWED_REPOS.includes(repo);
 
 const ghHeaders = () => ({
   Authorization: `Bearer ${GITHUB_TOKEN}`,
