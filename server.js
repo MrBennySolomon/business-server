@@ -59,6 +59,7 @@ const ALLOWED_REPOS = ("hair-salon","transport-office","garage","")
   .filter(Boolean);
 
 const isValidRepo = (repo) =>
+  console.log("Validating repo:", repo);
   typeof repo === "string" &&
   /^[A-Za-z0-9._-]{1,100}$/.test(repo) &&
   repo !== "." &&
