@@ -11,7 +11,7 @@ app.use(express.json());
 // Initialize GitHub configuration
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_OWNER = process.env.GITHUB_OWNER;
-const GITHUB_REPO = process.env.GITHUB_REPO;
+// const GITHUB_REPO = "";
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH;
 const GITHUB_FILE_PATH = process.env.GITHUB_FILE_PATH;
 
@@ -108,12 +108,12 @@ async function putFile(content, sha) {
 // ---------- הפונקציה שמקבלת את הבקשה ומעדכנת את הקובץ ב-GitHub ----------
 async function saveConfigToGithub(req, res) {
   try {
-    if (!GITHUB_TOKEN || !GITHUB_OWNER || !GITHUB_REPO) {
-      return res.status(500).json({ error: "חסרה הגדרת GitHub בשרת (.env)" });
-    }
+    // if (!GITHUB_TOKEN || !GITHUB_OWNER || !GITHUB_REPO) {
+    //   return res.status(500).json({ error: "חסרה הגדרת GitHub בשרת (.env)" });
+    // }
 
-    const { filename, content } = req.body || {};
-
+    const { filename, content, repo } = req.body || {};
+    const GITHUB_REPO = repo; // מאפשר לעדכן את שם הריפו מהבקשה, אם נשלח
     if (typeof filename !== "string" || typeof content !== "string") {
       return res.status(400).json({ error: "filename ו-content הם שדות חובה" });
     }
