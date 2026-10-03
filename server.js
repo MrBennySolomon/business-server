@@ -46,6 +46,10 @@ app.get("/hair-salon", (req, res) => {
   res.json("https://6aae754a606bd915d110d395.mockapi.io/api/salon-clients");
 });
 
+app.get("/tattoo-studio", (req, res) => {
+  res.json("https://6ab743059b03155d08087808.mockapi.io/api/tattoo");
+});
+
 // ---------------- GitHub ----------------
 const API = "https://api.github.com";
 const ALLOWED_FILES = new Set(["siteConfig.js"]);
@@ -53,7 +57,7 @@ const BRANCH = GITHUB_BRANCH || "main";
 
 // רשימת ריפואים מותרים. ב-.env: ALLOWED_REPOS=garage-site,hair-salon-site
 // אם לא הוגדרה, מותר רק הריפו מ-GITHUB_REPO (אם קיים)
-const ALLOWED_REPOS = ("hair-salon","transport-office","garage","")
+const ALLOWED_REPOS = ("hair-salon","transport-office","garage","tattoo-studio")
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
